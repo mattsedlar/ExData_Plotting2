@@ -10,4 +10,7 @@ NEI <- readRDS("data/summarySCC_PM25.rds")
 plot3 <- NEI %>% group_by(year, type) %>% summarize(`total emissions` = sum(Emissions))
 
 # plot
-ggplot(plot3, aes(x=year, y=`total emissions`)) + geom_line(aes(col=type, group=type))
+ggplot(plot3, aes(x=year, y=`total emissions`)) + geom_line() + facet_grid(. ~ type)
+
+dev.copy(png, "Plot3.png", width=500, height=500)
+dev.off()

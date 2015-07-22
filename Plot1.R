@@ -10,8 +10,9 @@ plot1 <- NEI %>%
          summarize('total emissions' = sum(Emissions))
 
 # plot
-with(plot1, boxplot(`total emissions` ~ year,
+with(plot1, barplot(`total emissions`, year,
                  ylab="Total PM2.5 Emissions",
+                 names.arg=unique(plot1$year),
                  xlab="Year",
                  main="Total PM2.5 Emissions in the U.S. by Year"))
 

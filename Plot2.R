@@ -13,7 +13,8 @@ plot2 <- NEI %>%
 plot2 <- filter(plot2,fips=="24510")
 
 #plot
-with(plot2, boxplot(`total emissions` ~ year,
+with(plot2, barplot(`total emissions`, year,
+                    names.arg=unique(plot2$year),
                     ylab="Total PM2.5 Emissions",
                     xlab="Year",
                     main="Total PM2.5 Emissions in Baltimore City by Year"))
